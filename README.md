@@ -1,3 +1,3 @@
 # antarinX
 
-# This is the frame work for deep learnign 
+This is the frame work for deep learning
