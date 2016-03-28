@@ -5,7 +5,7 @@ written in Matlab. This library makes use of a highly functional program interpr
 coupled with an object oriented structure to easily build and train deep neural 
 networks. All computations are initialized from initialize_nn.m . This initialization
 is passed into the nn_graph.m which creates a computational graph composed of four 
-environments: process, inference, swarming, evaluate. Each environment is composed of
+environments: <i>process</i>, <i>inference</i>, <i>swarming</i>, <i>evaluate</i>. Each environment is composed of
 a set of nodes particular to that environment: (i.e., process contains nodes related to 
 data transformations and pre-processing, whereas inference contains nodes related to 
 training the models). Each node in the environment represents mathematical operations, while
@@ -74,7 +74,5 @@ test_acc = ops.calculate_accuracy('Hypothesis', hypothesis, ...
 end
 
 ```
-
-##For more information
 
 **antarinX** will serve as the stepping stone to all future developments. 
