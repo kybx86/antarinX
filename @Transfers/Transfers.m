@@ -50,9 +50,8 @@ classdef Transfers
   
   function dy = softMax_grad(tensor)
    
-   % Note: this dy(softmax) currently implemented under Objectives.softmax_loss
-   % need one-hot labels
-   % need tensor = softmax(x)
+   dy = Transfers.softMax(tensor).*(1 - Transfers.softMax(tensor));
+    
    
   end
   

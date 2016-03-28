@@ -1,5 +1,7 @@
 %[samples, labels] = ops.load_data('ex2data1.txt');
-close all; clear; rng('shuffle'); %rng('default');
+close all; clear;
+%rng('shuffle'); 
+rng('default');
 
 % data = load('ex4data1.mat');
 % samples = data.X;
@@ -23,12 +25,12 @@ SET.define_testSplit('test_split', 15, 'Percentage of inputs for testing');
 SET.define_networkModel('networkModel', [784, 1024, 256, 10], 'Network Layer Architecture');
 %SET.define_networkModel('networkModel', [370, 256, 2], 'Network Layer Architecture');
 SET.define_lambda('Lambda', 0.01, 'L2 Regularization value');
-SET.define_optimMethod('optim_method', 'rmsprop', 'Type of update rule');
+SET.define_optimMethod('optim_method', 'sgd_momentum', 'Type of update rule');
 SET.define_learningRate('alpha', 0.001, 'Learning Rate');
 SET.define_learningRateDecay('lr_decay', .1, 'Learning Rate Step-Decay');
 SET.define_annealingFreq('annealing_freq', 10, 'Epoch frquency of lr_decay');
 SET.define_momentum('Momentum', 0.9, 'Momentum for optim methods');
-SET.define_numEpochs('num_epochs', 50, 'Number of epochs');
+SET.define_numEpochs('num_epochs', 10, 'Number of epochs');
 SET.define_batchSize('batch_size', 100, 'Size of batch. Note: must fit into data splits');
 SET.define_verbose('verbose', true, 'Display output while training');
 SET.define_displayEvery('disp_every', 1, 'Plot loss every n epochs');

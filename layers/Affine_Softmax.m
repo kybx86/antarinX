@@ -43,17 +43,24 @@ classdef Affine_Softmax
    %     dy, general derivative w.r.t error function
    %     dz, derivative w.r.t to this layer activation function
    
-   [m, n] = size(hypothesis);
-   [~, y_idx] = max(target, [], 2); % capture column indices from Y_hot
-   lin_idx = sub2ind(size(hypothesis), 1:m, y_idx');
-   
-   d_softmax = hypothesis;
-   d_softmax(lin_idx) = d_softmax(lin_idx) - 1;
-   d_softmax = d_softmax / m;
+   % --these are only needed for actual gradient of softmax. So turn off. 
+   %[m, n] = size(hypothesis);
+   %[~, y_idx] = max(target, [], 2); % capture column indices from Y_hot
+   %lin_idx = sub2ind(size(hypothesis), 1:m, y_idx');
+   %d_softmax = hypothesis;
+   %d_softmax(lin_idx) = d_softmax(lin_idx) - 1;
+   %d_softmax = d_softmax / m;
    
    dy = hypothesis - target; % general derivative w.r.t loss function
-   %dy = dscores;
-   dz = dy; %dscores;%(dy);%.*dscores; %make this work, b/c its taking compute time otherwise
+   dz = (dy);
+   
+   % --gradient w.r.t to softmax_grad g(x)(1 - g(x))
+   %dz = (dy).*Transfers.softMax_grad(hypothesis);
+   % --gradient w.r.t to softmax activation (as it should be). 
+   %dz = d_softmax;
+   % --gradient w.r.t to general loss function (performs better)
+   %dz = dy;
+   % --note: dz = (dy).*d_softmax does not work. 
    
    
   end
