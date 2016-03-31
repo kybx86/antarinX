@@ -12,21 +12,20 @@ training the models). Each node in the environment represents mathematical opera
 graph edges represent objects and tensors that flow between them.
 This enables a clear understanding of the flow of the computations in the graph.
 
-**antarinX** was developed by Kevin Yedid-Botton in order to facilitate the creation
 =======
-**antarinX** is a software library for numerical computation and deep learning 
-written in Matlab. This library makes use of a highly functional program interpretation 
-coupled with an object oriented structure to easily build and train deep neural 
+**antarinX** is a software library for numerical computation and deep learning
+written in Matlab. This library makes use of a highly functional program interpretation
+coupled with an object oriented structure to easily build and train deep neural
 networks. All computations are initialized from initialize_nn.m . This initialization
-is passed into the nn_graph.m which creates a computational graph composed of four 
+is passed into the nn_graph.m which creates a computational graph composed of four
 environments: <i>process</i>, <i>inference</i>, <i>swarming</i>, <i>evaluate</i>. Each environment is composed of
-a set of nodes particular to that environment: (i.e., process contains nodes related to 
-data transformations and pre-processing, whereas inference contains nodes related to 
+a set of nodes particular to that environment: (i.e., process contains nodes related to
+data transformations and pre-processing, whereas inference contains nodes related to
 training the models). Each node in the environment represents mathematical operations, while
-graph edges represent objects and tensors that flow between them. 
-This enables a clear understanding of the flow of the computations in the graph. 
+graph edges represent objects and tensors that flow between them.
+This enables a clear understanding of the flow of the computations in the graph.
 
-**antarinX** was developed by Kevin Yedid-Botton in order to facilitate the creation 
+**antarinX** was developed by Kevin Yedid-Botton in order to facilitate the creation
 of deep learning and machine learning systems. antarinX is flexible enough to create
 a variety of deep learning models such as feedforward networks with any architecture,
 but also dynamically structured to facilitate the user experience.
@@ -89,4 +88,4 @@ end
 
 ```
 
-**antarinX** will serve as the stepping stone to all future developments. 
+**antarinX** will serve as the stepping stone to all future developments.
