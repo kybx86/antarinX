@@ -67,6 +67,29 @@ classdef MinMethods
    
   end
   
+  
+  function [next_w, config] = adam(w, dw, config)
+   
+   %alpha   = config.lr_rate;  % 1e-3
+   beta1   = config.beta1;    % 0.9
+   beta2   = config.beta2;    % 0.999
+   epsilon = config.epsilon;  % 1e-8
+   m       = config.velocity; % (borrowing from momentum)  
+   v       = config.cache;    % (borrowing from rmsprop)
+   t       = config.iter;     % iter number 
+   
+   t = t + 1;
+   m = beta1 * m + (1 - beta1) * dw;
+   v = beta2 * v + (1 - beta2) * dw.^2;
+   alpha  = (config.lr_rate/sqrt(t)) * sqrt(1 - beta2^t) / (1 - beta1^t); % so alpha increases?
+   next_w = w - alpha*m./(sqrt(v) + epsilon);
+   
+   config.iter     = t;
+   config.cache    = v;
+   config.velocity = m;
+   
+  end
+  
  end
  
 end

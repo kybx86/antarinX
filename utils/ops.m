@@ -87,7 +87,7 @@ classdef ops
    display_cols = ceil(m / display_rows);
    
    % Between images padding
-   pad = 2;
+   pad = 4;
    
    % Setup blank display
    display_array = - ones(pad + display_rows * (example_height + pad), ...
@@ -115,8 +115,6 @@ classdef ops
    end
    
    
-   
-   
    % Display Image
    
    %Fig = figure(1);
@@ -125,7 +123,7 @@ classdef ops
    %         'Name',         mfilename,    ...
    %         'Color',        [1 1 1] ); %change background color here [R G B]
    
-   h = imagesc(display_array, [-1 1]);
+   h = surf(display_array, [-1 1]);
    
    % Do not show axis
    axis image off

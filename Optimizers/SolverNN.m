@@ -101,15 +101,17 @@ classdef SolverNN < handle
    obj.configs = struct('lr_rate', obj.alpha,...
     'momentum', obj.momentum,...
     'decay_rate', 0.99,...
-    'epsilon', 1e-4,...
+    'epsilon', 1e-8,... %previously set to 1e-4
     'velocity', [],... % velocity is non default value
-    'cache', [] );     % cache is non default value
-   
-   
+    'cache', [], ... % cache is non default value
+    'beta1', 0.9, ...
+    'beta2', 0.995,...
+    'iter', 0);    
+     
    try
     method_name = strcat('MinMethods.', SET.optim_method);
     obj.update_func = str2func(method_name);
-    obj.update_func(0, 0, obj.configs); %test it works
+    % obj.update_func(0, 0, obj.configs); %test it works
    catch
     error('Error: Invalid optim_method');
    end
